@@ -2,6 +2,7 @@
 // ref. parse-server/index.js
 // ref. parse-server/bin/parse-server
 
+var nr = require('newrelic');
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var links = require('docker-links').parseLinks(process.env);
@@ -305,7 +306,7 @@ console.log('schemaURL :', schemaURL);
 
 if(isSupportGraphQL){
     console.log('Starting GraphQL...');
-    
+
     var IS_DEVELOPMENT = process.env.NODE_ENV !== 'production';
 
     function getSchema() {
